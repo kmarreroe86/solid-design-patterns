@@ -15,6 +15,8 @@ public class UserWebDTOBuilder implements UserDTOBuilder {
 
     private String address;
 
+    private UserDTO dto;
+
     @Override
     public UserDTOBuilder withFirstName(String fname) {
         firstname = fname;
@@ -44,11 +46,12 @@ public class UserWebDTOBuilder implements UserDTOBuilder {
 
     @Override
     public UserDTO build() {
-        return null;
+        dto = new UserWebDTO(firstname + " " + lastname, address, age);
+        return dto;
     }
 
     @Override
     public UserDTO getUserDTO() {
-        return null;
+        return dto;
     }
 }
